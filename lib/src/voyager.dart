@@ -6,6 +6,9 @@ import 'package:provider/provider.dart';
 /// this means all the information resolved from the navigation file that is relevant to creating
 /// new widget.
 /// Once assembled the variables are locked - they can be read but you can't put more.
+///
+/// Developer might choose to use `storage` to dynamically put any variables that should be available
+/// to anyone having access to that instance of `Voyager`
 class Voyager {
   /// default constructor
   Voyager(
@@ -23,6 +26,8 @@ class Voyager {
   final Map<String, dynamic> _config;
   final _output = <String, dynamic>{};
 
+  /// allows storing arbitrary items within this voyager instance
+  final storage = <String, dynamic>{};
   final _onDispose = <VoidCallback>[];
 
   /// path of this voyager
