@@ -172,8 +172,8 @@ class VoyagerRouter extends AbstractRouter<Voyager, VoyagerParam> {
         // is off the stack as PageRoute will hold old router
         // reference
         try {
-          isWrappedWithRouter =
-              Provider.of<VoyagerRouter?>(context, listen: false) != null;
+          Provider.of<VoyagerRouter>(context, listen: false);
+          isWrappedWithRouter = true;
         } catch (_) {}
 
         dynamic argument;
